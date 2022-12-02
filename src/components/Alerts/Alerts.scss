@@ -1,4 +1,50 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/fonts" as *;
+
+@use "../../styles/partials/sizing" as *;
+
 .Alerts {
-    &__name {
+    transition: ease-out 0.5s;
+    &:hover {
+        background-color: $cloud;
+        padding: 20px 0;
+        transition: ease-in 0.5s;
     }
+    &__name {
+        padding: 0 105px 0 37px;
+        font-weight: 400;
+        font-size: 18px;
+        margin: 0;
+    }
+    &__container {
+        display: flex;
+        align-items: center;
+    }
+    &__img-container {
+        display: flex;
+        align-items: center;
+        margin-right: 1rem;
+        flex-direction: column;
+    }
+    &__edit {
+        width: 24px;
+        height: 24px;
+        visibility: hidden;
+        margin-top: 1px;
+    }
+    &__delete {
+        width: 24px;
+        height: 24px;
+        visibility: hidden;
+    }
+    &__label {
+        margin: 0;
+        visibility: hidden;
+        @include label;
+        color: $dark-blue;
+    }
+}
+
+.--visible {
+    visibility: visible;
 }

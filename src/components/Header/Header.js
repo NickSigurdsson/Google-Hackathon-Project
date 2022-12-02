@@ -1,8 +1,8 @@
 import logo from "../../assets/logos/google-svgrepo-com.svg";
-import profile from "../../assets/icons/profile_pic1.png";
+import profile from "../../assets/icons/profile image.svg";
 import candyBox from "../../assets/icons/menu-svgrepo-com.svg";
 import "./Header.scss";
-function Header(props) {
+function Header() {
     return (
         <div className="Header">
             <img

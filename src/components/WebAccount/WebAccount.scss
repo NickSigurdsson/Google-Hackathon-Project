@@ -1,9 +1,20 @@
+@use "../../styles/partials/colors";
+@use "../../styles/partials/fonts";
+@use "../../styles/partials/sizing";
+
 .WebAccount {
     &__container {
         display: flex;
         margin: 16px 0;
+        padding: 0 37px;
+        align-items: center;
+        gap: 1rem;
     }
     &__account {
         margin: 0;
+    }
+    &__plus {
+        width: 14px;
+        height: 14px;
     }
 }
