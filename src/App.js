@@ -29,34 +29,39 @@ function App() {
             </div>
 
             <h1 className="Home__title">Alerts</h1>
-
-            <FilterBar />
-            <div className="Dashboard">
-                <h2 className="Dashboard__title">Dashboard</h2>
-                <div className="Dashboard__wrapper">
-                    <div className="Dashboard__container">
-                        <h3 className="Dashboard__alerts">My Alerts</h3>
-                        <img
-                            className="Dashboard__options"
-                            src={options}
-                            alt="options icon"
-                        ></img>
+            <section className="Content-Section">
+                <div className="Dashboard">
+                    <h2 className="Dashboard__title">Dashboard</h2>
+                    <div className="Dashboard__wrapper">
+                        <div className="Dashboard__container">
+                            <h3 className="Dashboard__alerts">My Alerts</h3>
+                            <img
+                                className="Dashboard__options"
+                                src={options}
+                                alt="options icon"
+                            ></img>
+                        </div>
+                        <Alerts />
+                        <h3 className="Dashboard__web">Me on the web</h3>
+                        <WebAccount />
                     </div>
-                    <Alerts />
-                    <h3 className="Dashboard__web">Me on the web</h3>
-                    <WebAccount />
                 </div>
-            </div>
 
-            <div className="Alerts-Data">
-                <h2 className="Alerts-Data__title">Alerts Preview (9)</h2>
-                <AlertsArticle />
-            </div>
+                <div>
+                    <FilterBar />
+                    <div className="Alerts-Data">
+                        <h2 className="Alerts-Data__title">
+                            Alerts Preview (9)
+                        </h2>
+                        <AlertsArticle />
+                    </div>
 
-            <div>
-                <h2>How to setup an Alert?</h2>
-                <Video />
-            </div>
+                    <div>
+                        <h2>How to setup an Alert?</h2>
+                        <Video />
+                    </div>
+                </div>
+            </section>
             <Footer />
         </>
     );

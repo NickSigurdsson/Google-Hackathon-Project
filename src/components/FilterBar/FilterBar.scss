@@ -1,21 +1,24 @@
-.filter-item{
-    &-inner-container{
+.filter-item {
+    &-overall-container {
+        margin: 0 225px;
+    }
+    &-inner-container {
         display: flex;
         padding: 1rem;
     }
-    &-outer-container{
+    &-outer-container {
         display: flex;
     }
-    &-label{
+    &-label {
         margin-right: 1rem;
     }
-    &-button{
+    &-button {
         margin: 1rem;
     }
 }
-.search-bar{
+.search-bar {
     padding: 1rem;
-    &-container-input{
+    &-container-input {
         border: 1px solid #c9c9c9;
         border-radius: 1.875rem;
     }
