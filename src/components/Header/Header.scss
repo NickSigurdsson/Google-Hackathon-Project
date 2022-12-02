@@ -1,0 +1,22 @@
+.Header {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+
+    &__google-logo {
+        width: 4.6875rem;
+        border-radius: 50%;
+    }
+    &__icon-container {
+        gap: 1.5rem;
+        display: flex;
+        align-items: center;
+    }
+    &__profile-picture {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    &__candy-box {
+        width: 1.25rem;
+    }
+}
