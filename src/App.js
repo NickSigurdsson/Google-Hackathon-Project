@@ -8,6 +8,7 @@ import AlertsArticle from "./components/AlertsArticle/AlertsArticle";
 import options from "./assets/icons/Settings icon.svg";
 import zoomOut from "./assets/icons/zoom out.svg";
 import zoomIn from "./assets/icons/zoom in.svg";
+import Video from "./components/Video/Video";
 import SearchBar from "./components/SearchBar/SearchBar";
 import FilterBar from "./components/FilterBar/FilterBar";
 function App() {
@@ -52,8 +53,11 @@ function App() {
                 <h2 className="Alerts-Data__title">Alerts Preview (9)</h2>
                 <AlertsArticle />
             </div>
+            <FilterBar />
+
             <SearchBar />
             {/* <FilterBar /> */}
+            <Video />
             <Footer />
         </>
     );
