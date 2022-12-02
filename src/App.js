@@ -10,9 +10,6 @@ function App() {
         <>
             <Header />
             <FilterBar />
-
-            <SearchBar />
-            {/* <FilterBar /> */}
             <Video />
             <Footer />
         </>
