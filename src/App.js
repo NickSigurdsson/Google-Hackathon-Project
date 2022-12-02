@@ -57,7 +57,11 @@ function App() {
 
             <SearchBar />
             {/* <FilterBar /> */}
-            <Video />
+            <div>
+                <h2>How to setup an Alert?</h2>
+                <Video />
+            </div>
+
             <Footer />
         </>
     );
