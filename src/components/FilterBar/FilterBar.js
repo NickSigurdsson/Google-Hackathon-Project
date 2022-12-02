@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import AlertsArticle from "../AlertsArticle/AlertsArticle";
+import { Link } from "react-router-dom";
 function FilterBar() {
     const [searchValue, setSearchValue] = useState("");
     const searchLogic = (event) => {
@@ -36,11 +37,7 @@ function FilterBar() {
             how_many: event.target.howmany.value,
             deliver_to: event.target.deliverto.value,
         };
-        axios
-            .post("http://localhost:8080/alerts", alertData)
-            .then((response) => {
-                axios.get("http://localhost:8080/alerts");
-            });
+        axios.post("http://localhost:8080/alerts", alertData);
     };
     return (
         <form onSubmit={onSubmit} className="filter-item-overall-container">
@@ -204,7 +201,9 @@ function FilterBar() {
                     <option value="isleep@dog.com">isleep@dog.com</option>
                 </select>
             </div>
-            <button className="filter-item-button">Create an Alert</button>
+            <Link to="/success">
+                <button className="filter-item-button">Create an Alert</button>
+            </Link>
             <div className="Alerts-Data">
                 <h2 className="Alerts-Data__title">
                     Alerts Preview ({articleData.length})

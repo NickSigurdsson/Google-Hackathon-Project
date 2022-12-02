@@ -4,7 +4,7 @@ import "./Alerts.scss";
 import edit from "../../assets/icons/edit.svg";
 import deleteIcon from "../../assets/icons/delete.svg";
 
-function Alerts(props) {
+function Alerts() {
     const [alerts, setAlerts] = useState([]);
     const [hover, setHover] = useState(false);
 
@@ -26,6 +26,7 @@ function Alerts(props) {
     };
 
     // console.log(alerts[0].Name);
+
     return alerts.map((alert) => {
         return (
             <div

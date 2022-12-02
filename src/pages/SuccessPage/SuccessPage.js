@@ -1,19 +1,18 @@
-import "./App.scss";
-import FilterBar from "./components/FilterBar/FilterBar";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Alerts from "./components/Alerts/Alerts";
-import WebAccount from "./components/WebAccount/WebAccount";
-import SuccessPage from "./pages/SuccessPage/SuccessPage";
-import options from "./assets/icons/Settings icon.svg";
-import zoomOut from "./assets/icons/zoom out.svg";
-import zoomIn from "./assets/icons/zoom in.svg";
-import Video from "./components/Video/Video";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./SuccessPage.scss";
+import FilterBar from "../../components/FilterBar/FilterBar";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import Alerts from "../../components/Alerts/Alerts";
+import WebAccount from "../../components/WebAccount/WebAccount";
 
-function App() {
+import options from "../../assets/icons/Settings icon.svg";
+import zoomOut from "../../assets/icons/zoom out.svg";
+import zoomIn from "../../assets/icons/zoom in.svg";
+import Video from "../../components/Video/Video";
+
+function SuccessPage(props) {
     return (
-        <BrowserRouter>
+        <>
             <Header />
             <div className="Text-size">
                 <h1 className="Text-size__title">Text size</h1>
@@ -58,10 +57,8 @@ function App() {
                 </div>
             </section>
             <Footer />
-            <Routes>
-                <Route path="/success" element={<SuccessPage />}></Route>
-            </Routes>
-        </BrowserRouter>
+        </>
     );
 }
-export default App;
+
+export default SuccessPage;
