@@ -1,0 +1,11 @@
+.Footer {
+    &__list {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        gap: 1rem;
+    }
+    &__list-item {
+        color: grey;
+    }
+}
