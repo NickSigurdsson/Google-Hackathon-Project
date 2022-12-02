@@ -1,0 +1,6 @@
+function FilterBar(){
+    return(
+        <div>FilterBar</div>
+    )
+}
+export default FilterBar;

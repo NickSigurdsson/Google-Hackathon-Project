@@ -1,7 +1,10 @@
 import "./App.css";
+import FilterBar from './components/FilterBar/FilterBar';
 
 function App() {
-    return <div className="App"></div>;
+    return (
+        <FilterBar/>
+    )
 }
 
 export default App;
