@@ -1,4 +1,5 @@
-import "./SuccessPage.scss";
+import React from "react";
+import "./HomePage.scss";
 import FilterBar from "../../components/FilterBar/FilterBar";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
@@ -10,7 +11,7 @@ import zoomOut from "../../assets/icons/zoom out.svg";
 import zoomIn from "../../assets/icons/zoom in.svg";
 import Video from "../../components/Video/Video";
 
-function SuccessPage(props) {
+function HomePage() {
     return (
         <>
             <Header />
@@ -48,6 +49,8 @@ function SuccessPage(props) {
                 </div>
 
                 <div>
+                    <FilterBar />
+
                     <div>
                         <h2 className="Video-title">How to setup an Alert?</h2>
                         <Video />
@@ -59,4 +62,4 @@ function SuccessPage(props) {
     );
 }
 
-export default SuccessPage;
+export default HomePage;
