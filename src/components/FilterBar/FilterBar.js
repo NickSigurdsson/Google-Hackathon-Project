@@ -24,7 +24,6 @@ function FilterBar() {
     console.log(articleData);
     // searchTerm is whatever that search value is (that is being typed into the search box)
     const onSubmit = (event) => {
-        // we wanna do an axios get here for http request to backend to return data to us \
         event.preventDefault();
         const alertData = {
             id: uuidv4(),
@@ -46,12 +45,11 @@ function FilterBar() {
         <form onSubmit={onSubmit} className="filter-item-overall-container">
             <div className="search-bar">
                 <h2>Monitor keywords and specific terms you set</h2>
-                <div class='search-bar-overall-container'>
+                <div className="search-bar-overall-container">
                     <div className='search-bar-container'>
-                        {/* <span><img src={searchIcon} alt="search icon" /></span> */}
-                        <input className='search-bar-container-input' type="text" placeholder='Search keywords' value={searchValue} onChange={searchLogic}></input>
+                        <input className='search-bar-container-input' placeholder='Search keywords' type="text" value={searchValue} onChange={searchLogic} />
                     </div>
-                    <div>
+                    <div className='search-bar-autofill'>
                         {data
                         .filter((item)=>{
                             const searchTerm = searchValue.toLowerCase();
@@ -179,7 +177,7 @@ function FilterBar() {
                 <label className='filter-item-label' htmlFor="deliverto">Deliver to</label>
                 <select className='filter-item-dropdown' name="filters-item" id="deliverto">
                     <option value="james.marshall@gmail.com">james.marshall@gmail.com</option>
-                    <option value="nicklovesdoingCSSStyling@gmail.com">nicklovesdoingCSSStyling@gmail.com</option>
+                    <option value="welovesdoingCSSSytling@gmail.com">welovesdoingCSSSytling@gmail.com</option>
                     <option value="RSS Feed">RSS Feed</option>
                 </select>
             </div>
