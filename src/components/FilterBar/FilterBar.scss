@@ -13,7 +13,8 @@
     }
     &-button {
         @include button;
-        // margin: 1rem;
+        margin-top: 3rem;
+        margin-bottom: 5rem;
         padding: 0.25rem 1.5rem 0.25rem 1.5rem;
         background-color: $dark-blue;
         color: $white;
@@ -39,13 +40,12 @@
         border-radius: 1.875rem;
         width: 30.6875rem;
         background-image: url("../../assets/icons/search.svg");
-
         background-repeat: no-repeat;
         background-position: 7px;
-
         padding-top: 0.5625rem;
         padding-bottom: 0.5625rem;
         padding-left: 4.125rem;
+        margin-bottom: 0.5rem;
     }
     &-overall-container {
         width: 30.6875rem;
