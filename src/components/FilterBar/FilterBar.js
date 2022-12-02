@@ -1,24 +1,27 @@
+import './FilterBar.scss';
 function FilterBar(){
     return(
         <form action="#">
             <div>
-                <label htmlFor="frequency-dropdown">How often</label>
-                <select name="filters-item" id="frequency-dropdown">
-                    <option value="OnceADay">At most once a day</option>
-                    <option value="AsItHappens">As-it-happens</option>
-                    <option value="OnceAWeek">At most once a week</option>
-                </select>
-            </div>
-            <div>
-                <label htmlFor="sources">Sources</label>
-                <select name="filters-item" id="sources">
-                    <option value="Automatic">Automatic</option>
-                    <option value="News">News</option>
-                    <option value="Blogs">Blogs</option>
-                    <option value="Web">Web</option>
-                    <option value="Video">Video</option>
-                    <option value="Books">Books</option>
-                </select>
+                <div>
+                    <label htmlFor="frequency-dropdown">How often</label>
+                    <select name="filters-item" id="frequency-dropdown">
+                        <option value="OnceADay">At most once a day</option>
+                        <option value="AsItHappens">As-it-happens</option>
+                        <option value="OnceAWeek">At most once a week</option>
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="sources">Sources</label>
+                    <select name="filters-item" id="sources">
+                        <option value="Automatic">Automatic</option>
+                        <option value="News">News</option>
+                        <option value="Blogs">Blogs</option>
+                        <option value="Web">Web</option>
+                        <option value="Video">Video</option>
+                        <option value="Books">Books</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <label htmlFor="language">Language</label>
