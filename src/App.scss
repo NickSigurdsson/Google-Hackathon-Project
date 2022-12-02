@@ -1,0 +1,15 @@
+@use "./styles/partials/colors" as *;
+@use "./styles/partials/fonts" as *;
+@use "./styles/partials/sizing" as *;
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto";
+    font-weight: 400;
+}
