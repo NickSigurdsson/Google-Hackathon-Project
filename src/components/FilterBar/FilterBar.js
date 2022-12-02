@@ -11,7 +11,8 @@ function FilterBar(){
     const onSearch = (searchTerm) => setSearchValue(searchTerm);
     // searchTerm is whatever that search value is (that is being typed into the search box)
     const onSubmit = (event) =>{
-        // we wanna do an axios get here for http request to backend to return data to us 
+        // we wanna do an axios get here for http request to backend to return data to us \
+        event.preventDefault();
         const alertData = {
             id : uuidv4(),
             Name : searchValue,
@@ -22,7 +23,7 @@ function FilterBar(){
             how_many: event.target.howmany.value,
             deliver_to: event.target.deliverto.value
         }
-        axios.post('http://localhost:8080/alerts',alertData);
+        axios.post('http://localhost:8080/articles',alertData);
     }
     return(
         <form onSubmit={onSubmit} className='filter-item-overall-container'>
