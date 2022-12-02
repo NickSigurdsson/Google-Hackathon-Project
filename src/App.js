@@ -1,5 +1,5 @@
 import "./App.scss";
-import FilterBar from "./components/FilterBar/FilterBar";
+// import FilterBar from "./components/FilterBar/FilterBar";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Alerts from "./components/Alerts/Alerts";
@@ -8,6 +8,8 @@ import AlertsArticle from "./components/AlertsArticle/AlertsArticle";
 import options from "./assets/icons/Settings icon.svg";
 import zoomOut from "./assets/icons/zoom out.svg";
 import zoomIn from "./assets/icons/zoom in.svg";
+import SearchBar from "./components/SearchBar/SearchBar";
+import FilterBar from "./components/FilterBar/FilterBar";
 function App() {
     return (
         <>
@@ -50,6 +52,8 @@ function App() {
                 <h2 className="Alerts-Data__title">Alerts Preview (9)</h2>
                 <AlertsArticle />
             </div>
+            <SearchBar />
+            {/* <FilterBar /> */}
             <Footer />
         </>
     );
