@@ -9,7 +9,6 @@ import options from "./assets/icons/Settings icon.svg";
 import zoomOut from "./assets/icons/zoom out.svg";
 import zoomIn from "./assets/icons/zoom in.svg";
 import Video from "./components/Video/Video";
-import SearchBar from "./components/SearchBar/SearchBar";
 
 function App() {
     return (
