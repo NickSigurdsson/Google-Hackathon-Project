@@ -1,0 +1,29 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/sizing" as *;
+
+.Success-container {
+    &__img {
+        margin: auto;
+        display: block;
+        width: 120px;
+        height: 120px;
+    }
+    &__title {
+        text-align: center;
+        @include h2;
+    }
+    &__sub-container {
+        margin-bottom: 114px;
+    }
+    &__paragraph {
+        text-align: center;
+        @include h3;
+    }
+    &__link {
+        text-align: center;
+        display: block;
+        margin-right: 145px;
+        @include h3;
+    }
+}

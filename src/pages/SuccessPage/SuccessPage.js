@@ -4,11 +4,12 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import Alerts from "../../components/Alerts/Alerts";
 import WebAccount from "../../components/WebAccount/WebAccount";
-
+import { Link } from "react-router-dom";
 import options from "../../assets/icons/Settings icon.svg";
 import zoomOut from "../../assets/icons/zoom out.svg";
 import zoomIn from "../../assets/icons/zoom in.svg";
 import Video from "../../components/Video/Video";
+import success from "../../assets/icons/confirm icon.svg";
 
 function SuccessPage(props) {
     return (
@@ -46,13 +47,31 @@ function SuccessPage(props) {
                         <WebAccount />
                     </div>
                 </div>
-
-                <div>
-                    <div>
-                        <h2 className="Video-title">How to setup an Alert?</h2>
-                        <Video />
+                <section className="Success-container">
+                    <div className="Success-container__sub-container">
+                        <img
+                            className="Success-container__img"
+                            src={success}
+                            alt="success checkmark"
+                        ></img>
+                        <h2 className="Success-container__title">Successful</h2>
+                        <p className="Success-container__paragraph">
+                            Alerts have been successfully made
+                        </p>
+                        <span className="Success-container__link">
+                            View in your <Link to="/">dashboard</Link>
+                        </span>
                     </div>
-                </div>
+
+                    <div>
+                        <div>
+                            <h2 className="Video-title">
+                                How to setup an Alert?
+                            </h2>
+                            <Video />
+                        </div>
+                    </div>
+                </section>
             </section>
             <Footer />
         </>

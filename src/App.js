@@ -1,7 +1,5 @@
 import "./App.scss";
-
 import SuccessPage from "./pages/SuccessPage/SuccessPage";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 
