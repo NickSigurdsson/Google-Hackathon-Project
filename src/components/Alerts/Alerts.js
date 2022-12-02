@@ -56,8 +56,7 @@ function Alerts() {
                         >
                             Edit
                         </p>
-                    </div>
-                    <div className="Alerts__img-container">
+
                         <img
                             className={
                                 hover

@@ -11,10 +11,9 @@
         transition: ease-in 0.5s;
     }
     &__name {
-        padding: 0 105px 0 37px;
         font-weight: 400;
         font-size: 18px;
-        margin: 0;
+        padding-left: 37px;
     }
     &__container {
         display: flex;
@@ -25,7 +24,7 @@
         display: flex;
         align-items: center;
         margin-right: 1rem;
-        flex-direction: column;
+        flex-direction: row;
     }
     &__edit {
         width: 24px;
@@ -43,6 +42,7 @@
         visibility: hidden;
         @include label;
         color: $dark-blue;
+        margin-right: 5px;
     }
 }
 
