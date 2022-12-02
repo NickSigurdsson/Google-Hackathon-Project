@@ -26,49 +26,60 @@ function Alerts(props) {
     };
 
     // console.log(alerts[0].Name);
-    return (
-        <div
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOff}
-            className="Alerts"
-        >
-            <div className="Alerts__container">
-                <h2 className="Alerts__name">whatever</h2>
-                <div className="Alerts__img-container">
-                    <img
-                        className={
-                            hover ? "Alerts__edit --visible" : "Alerts__edit"
-                        }
-                        src={edit}
-                        alt="edit icon"
-                    ></img>
-                    <p
-                        className={
-                            hover ? "Alerts__label --visible" : "Alerts__label"
-                        }
-                    >
-                        Edit
-                    </p>
-                </div>
-                <div className="Alerts__img-container">
-                    <img
-                        className={
-                            hover ? "Alerts__delete --visible" : "Alerts__edit"
-                        }
-                        src={deleteIcon}
-                        alt="delete icon"
-                    ></img>
-                    <p
-                        className={
-                            hover ? "Alerts__label --visible" : "Alerts__label"
-                        }
-                    >
-                        Delete
-                    </p>
+    return alerts.map((alert) => {
+        return (
+            <div
+                key={alert.id}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOff}
+                className="Alerts"
+            >
+                <div className="Alerts__container">
+                    <h2 className="Alerts__name">{alert.Name}</h2>
+                    <div className="Alerts__img-container">
+                        <img
+                            className={
+                                hover
+                                    ? "Alerts__edit --visible"
+                                    : "Alerts__edit"
+                            }
+                            src={edit}
+                            alt="edit icon"
+                        ></img>
+                        <p
+                            className={
+                                hover
+                                    ? "Alerts__label --visible"
+                                    : "Alerts__label"
+                            }
+                        >
+                            Edit
+                        </p>
+                    </div>
+                    <div className="Alerts__img-container">
+                        <img
+                            className={
+                                hover
+                                    ? "Alerts__delete --visible"
+                                    : "Alerts__edit"
+                            }
+                            src={deleteIcon}
+                            alt="delete icon"
+                        ></img>
+                        <p
+                            className={
+                                hover
+                                    ? "Alerts__label --visible"
+                                    : "Alerts__label"
+                            }
+                        >
+                            Delete
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    });
 }
 
 export default Alerts;

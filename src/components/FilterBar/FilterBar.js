@@ -1,33 +1,50 @@
-import './FilterBar.scss';
-import data from'../../data/dog-data.json';
-import {useState} from 'react';
-import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
-function FilterBar(){
-    const [searchValue, setSearchValue] = useState('');
-    const searchLogic = (event) =>{
+import "./FilterBar.scss";
+import data from "../../data/dog-data.json";
+import { useState } from "react";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+import AlertsArticle from "../AlertsArticle/AlertsArticle";
+function FilterBar() {
+    const [searchValue, setSearchValue] = useState("");
+    const searchLogic = (event) => {
         setSearchValue(event.target.value);
-    }
+    };
     const onSearch = (searchTerm) => setSearchValue(searchTerm);
+    const articleData = data
+        .filter((item) => {
+            const searchTerm = searchValue.toLowerCase();
+            const title = item.Title.toLowerCase();
+            return (
+                searchTerm &&
+                title.startsWith(searchTerm) &&
+                title !== searchTerm
+            );
+        })
+        .slice(0, 10);
+    console.log(articleData);
     // searchTerm is whatever that search value is (that is being typed into the search box)
-    const onSubmit = (event) =>{
+    const onSubmit = (event) => {
         // we wanna do an axios get here for http request to backend to return data to us \
         event.preventDefault();
         const alertData = {
-            id : uuidv4(),
-            Name : searchValue,
+            id: uuidv4(),
+            Name: searchValue,
             how_often: event.target.frequencydropdown.value,
             sources: event.target.sources.value,
             language: event.target.language.value,
             region: event.target.region.value,
             how_many: event.target.howmany.value,
-            deliver_to: event.target.deliverto.value
-        }
-        axios.post('http://localhost:8080/articles',alertData);
-    }
-    return(
-        <form onSubmit={onSubmit} className='filter-item-overall-container'>
-            <div className='search-bar'>
+            deliver_to: event.target.deliverto.value,
+        };
+        axios
+            .post("http://localhost:8080/alerts", alertData)
+            .then((response) => {
+                axios.get("http://localhost:8080/alerts");
+            });
+    };
+    return (
+        <form onSubmit={onSubmit} className="filter-item-overall-container">
+            <div className="search-bar">
                 <h2>Monitor keywords and specific terms you set</h2>
                 <div class='search-bar-overall-container'>
                     <div className='search-bar-container'>
@@ -77,8 +94,12 @@ function FilterBar(){
                         <option value="Belarusian">Belarusian</option>
                         <option value="Bulgarian">Bulgarian</option>
                         <option value="Catalan">Catalan</option>
-                        <option value="Chinese (Simplified)">Chinese (Simplified)</option>
-                        <option value="Chinese (Traditional)">Chinese (Traditional)</option>
+                        <option value="Chinese (Simplified)">
+                            Chinese (Simplified)
+                        </option>
+                        <option value="Chinese (Traditional)">
+                            Chinese (Traditional)
+                        </option>
                         <option value="Croatian">Croatian</option>
                         <option value="Czech">Czech</option>
                         <option value="Danish">Danish</option>
@@ -162,8 +183,17 @@ function FilterBar(){
                     <option value="RSS Feed">RSS Feed</option>
                 </select>
             </div>
-            <button className='filter-item-button'>Create an Alert</button>
+            <button className="filter-item-button">Create an Alert</button>
+            <div className="Alerts-Data">
+                <h2 className="Alerts-Data__title">
+                    Alerts Preview ({articleData.length})
+                </h2>
+
+                {articleData.map((data) => {
+                    return <AlertsArticle data={data} />;
+                })}
+            </div>
         </form>
-    )
+    );
 }
 export default FilterBar;

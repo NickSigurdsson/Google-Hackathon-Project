@@ -1,15 +1,18 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/fonts" as *;
-
 @use "../../styles/partials/sizing" as *;
 
 .Alerts-Article {
     padding: 0 26px;
-    width: 50%;
+    max-width: 55vw;
     border-radius: 10px;
     border: solid 1px rgba(105, 105, 105, 0.51);
     background-color: #fcfdff;
+    margin: 1rem 0;
 
+    &__text-container {
+        width: 85%;
+    }
     &__title {
         @include h6;
         font-weight: 700;
@@ -17,10 +20,13 @@
     &__source {
         @include label;
         font-weight: 400;
+        word-wrap: break-word;
+        text-decoration: underline;
     }
     &__description {
         @include label;
         font-weight: 400;
+        word-wrap: break-word;
         --max-lines: 1;
 
         display: -webkit-box;

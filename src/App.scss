@@ -46,6 +46,8 @@ body {
 
 .Dashboard {
     width: 324px;
+    background-color: $white;
+
     &__title {
         background-color: $dark-blue;
         color: #fefefe;
@@ -88,5 +90,14 @@ body {
     align-items: center;
 
     &__title {
+        align-self: flex-start;
     }
+}
+
+.Content-Section {
+    display: flex;
+}
+
+.Video-title {
+    margin-left: 225px;
 }

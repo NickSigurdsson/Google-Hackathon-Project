@@ -1,11 +1,17 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/fonts" as *;
+
+@use "../../styles/partials/sizing" as *;
 .Footer {
     &__list {
         display: flex;
         list-style: none;
         justify-content: center;
         gap: 1rem;
+        padding: 16px 0;
     }
     &__list-item {
         color: grey;
+        font-size: 13px;
     }
 }
