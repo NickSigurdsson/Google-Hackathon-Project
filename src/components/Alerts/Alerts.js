@@ -1,21 +1,21 @@
-import { useState, useEffect } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Alerts.scss";
 
 function Alerts(props) {
-    const [articles, setArticles] = useState([]);
+    const [alerts, setArticles] = useState([]);
 
     useEffect(() => {
-        axios.get("http:localhost:8080/articles").then((response) => {
+        axios.get("http://localhost:8080/alerts").then((response) => {
             setArticles(response.data);
         });
     }, []);
 
-    console.log(articles);
+    console.log(alerts[0].Name);
     return (
         <div className="Alerts">
             <div>
-                <h2 className="Alerts__name">Dog treats</h2>
+                <h2 className="Alerts__name">{alerts[0].Name}</h2>
                 <img></img>
                 <img></img>
             </div>

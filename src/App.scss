@@ -14,3 +14,12 @@ body {
         margin-left: 16px;
     }
 }
+
+.Dashboard {
+    width: 350px;
+    &__title {
+        background-color: grey;
+        padding: 16px;
+        border-radius: 2px;
+    }
+}
