@@ -7,3 +7,10 @@
 body {
     margin: 0;
 }
+
+.Home {
+    &__title {
+        text-align: left;
+        margin-left: 16px;
+    }
+}

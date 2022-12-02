@@ -6,7 +6,12 @@ function App() {
     return (
         <>
             <Header />
+            <h1 className="Home__title">Alerts</h1>
             <FilterBar />
+            <div>
+                <h2>Dashboard</h2>
+                <h3>My Alerts</h3>
+            </div>
             <Footer />
         </>
     );
