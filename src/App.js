@@ -49,15 +49,9 @@ function App() {
 
                 <div>
                     <FilterBar />
-                    <div className="Alerts-Data">
-                        <h2 className="Alerts-Data__title">
-                            Alerts Preview (9)
-                        </h2>
-                        <AlertsArticle />
-                    </div>
 
                     <div>
-                        <h2>How to setup an Alert?</h2>
+                        <h2 className="Video-title">How to setup an Alert?</h2>
                         <Video />
                     </div>
                 </div>

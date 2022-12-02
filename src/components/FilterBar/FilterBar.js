@@ -1,70 +1,99 @@
-import './FilterBar.scss';
-import data from'../../data/dog-data.json';
-import {useState} from 'react';
-import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
-function FilterBar(){
-    const [searchValue, setSearchValue] = useState('');
-    const searchLogic = (event) =>{
+import "./FilterBar.scss";
+import data from "../../data/dog-data.json";
+import { useState } from "react";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
+import AlertsArticle from "../AlertsArticle/AlertsArticle";
+function FilterBar() {
+    const [searchValue, setSearchValue] = useState("");
+    const searchLogic = (event) => {
         setSearchValue(event.target.value);
-    }
+    };
     const onSearch = (searchTerm) => setSearchValue(searchTerm);
+    const articleData = data
+        .filter((item) => {
+            const searchTerm = searchValue.toLowerCase();
+            const title = item.Title.toLowerCase();
+            return (
+                searchTerm &&
+                title.startsWith(searchTerm) &&
+                title !== searchTerm
+            );
+        })
+        .slice(0, 10);
+    console.log(articleData);
     // searchTerm is whatever that search value is (that is being typed into the search box)
-    const onSubmit = (event) =>{
+    const onSubmit = (event) => {
         // we wanna do an axios get here for http request to backend to return data to us \
         event.preventDefault();
         const alertData = {
-            id : uuidv4(),
-            Name : searchValue,
+            id: uuidv4(),
+            Name: searchValue,
             how_often: event.target.frequencydropdown.value,
             sources: event.target.sources.value,
             language: event.target.language.value,
             region: event.target.region.value,
             how_many: event.target.howmany.value,
-            deliver_to: event.target.deliverto.value
-        }
-        axios.post('http://localhost:8080/articles',alertData);
-    }
-    return(
-        <form onSubmit={onSubmit} className='filter-item-overall-container'>
-            <div className='search-bar'>
+            deliver_to: event.target.deliverto.value,
+        };
+        axios
+            .post("http://localhost:8080/alerts", alertData)
+            .then((response) => {
+                axios.get("http://localhost:8080/alerts");
+            });
+    };
+    return (
+        <form onSubmit={onSubmit} className="filter-item-overall-container">
+            <div className="search-bar">
                 <h2>Monitor keywords and specific terms you set</h2>
-                <div className='search-bar-container'>
-                    <input className='search-bar-container-input' type="text" value={searchValue} onChange={searchLogic} />
+                <div className="search-bar-container">
+                    <input
+                        className="search-bar-container-input"
+                        type="text"
+                        value={searchValue}
+                        onChange={searchLogic}
+                    />
                 </div>
                 <div>
                     {data
-                    .filter((item)=>{
-                        const searchTerm = searchValue.toLowerCase();
-                        const title = item.Title.toLowerCase();
-                        return(
-                            searchTerm && 
-                            title.startsWith(searchTerm) &&
-                            title !== searchTerm
-                        );
-                    })
-                    .slice(0, 10)
-                    .map((item)=> (
-                    <div 
-                    onClick={()=>onSearch(item.Title)}
-                    key={item.Title}
-                    >
-                    {item.Title}
-                    </div>
-                    ))}
+                        .filter((item) => {
+                            const searchTerm = searchValue.toLowerCase();
+                            const title = item.Title.toLowerCase();
+                            return (
+                                searchTerm &&
+                                title.startsWith(searchTerm) &&
+                                title !== searchTerm
+                            );
+                        })
+                        .slice(0, 10)
+                        .map((item) => (
+                            <div
+                                onClick={() => onSearch(item.Title)}
+                                key={item.Title}
+                            >
+                                {item.Title}
+                            </div>
+                        ))}
                 </div>
             </div>
-            <div className='filter-item-outer-container'>
-                <div className='filter-item-inner-container'>
-                    <label className='filter-item-label' htmlFor="frequencydropdown">How often</label>
+            <div className="filter-item-outer-container">
+                <div className="filter-item-inner-container">
+                    <label
+                        className="filter-item-label"
+                        htmlFor="frequencydropdown"
+                    >
+                        How often
+                    </label>
                     <select name="filters-item" id="frequencydropdown">
                         <option value="OnceADay">At most once a day</option>
                         <option value="AsItHappens">As-it-happens</option>
                         <option value="OnceAWeek">At most once a week</option>
                     </select>
                 </div>
-                <div className='filter-item-inner-container'>
-                    <label className='filter-item-label' htmlFor="language">Language</label>
+                <div className="filter-item-inner-container">
+                    <label className="filter-item-label" htmlFor="language">
+                        Language
+                    </label>
                     <select name="filters-item" id="language">
                         <option value="Any Language">Any Language</option>
                         <option value="English">English</option>
@@ -74,8 +103,12 @@ function FilterBar(){
                         <option value="Belarusian">Belarusian</option>
                         <option value="Bulgarian">Bulgarian</option>
                         <option value="Catalan">Catalan</option>
-                        <option value="Chinese (Simplified)">Chinese (Simplified)</option>
-                        <option value="Chinese (Traditional)">Chinese (Traditional)</option>
+                        <option value="Chinese (Simplified)">
+                            Chinese (Simplified)
+                        </option>
+                        <option value="Chinese (Traditional)">
+                            Chinese (Traditional)
+                        </option>
                         <option value="Croatian">Croatian</option>
                         <option value="Czech">Czech</option>
                         <option value="Danish">Danish</option>
@@ -116,9 +149,11 @@ function FilterBar(){
                     </select>
                 </div>
             </div>
-            <div className='filter-item-outer-container'>
-                <div className='filter-item-inner-container'>
-                    <label className='filter-item-label' htmlFor="sources">Sources</label>
+            <div className="filter-item-outer-container">
+                <div className="filter-item-inner-container">
+                    <label className="filter-item-label" htmlFor="sources">
+                        Sources
+                    </label>
                     <select name="filters-item" id="sources">
                         <option value="Automatic">Automatic</option>
                         <option value="News">News</option>
@@ -128,8 +163,10 @@ function FilterBar(){
                         <option value="Books">Books</option>
                     </select>
                 </div>
-                <div className='filter-item-inner-container'>
-                    <label className='filter-item-label' htmlFor="region">Region</label>
+                <div className="filter-item-inner-container">
+                    <label className="filter-item-label" htmlFor="region">
+                        Region
+                    </label>
                     <select name="filters-item" id="region">
                         <option value="AnyRegion">Any Region</option>
                         <option value="UnitedStates">United States</option>
@@ -144,23 +181,40 @@ function FilterBar(){
                     </select>
                 </div>
             </div>
-            <div className='filter-item-inner-container'>
-                <label className='filter-item-label' htmlFor="howmany">How many</label>
+            <div className="filter-item-inner-container">
+                <label className="filter-item-label" htmlFor="howmany">
+                    How many
+                </label>
                 <select name="filters-item" id="howmany">
-                    <option value="OnlyTheBestResults">Only the best results</option>
+                    <option value="OnlyTheBestResults">
+                        Only the best results
+                    </option>
                     <option value="AllResults">All results</option>
                 </select>
             </div>
-            <div className='filter-item-inner-container'>
-                <label className='filter-item-label' htmlFor="deliverto">Deliver to</label>
+            <div className="filter-item-inner-container">
+                <label className="filter-item-label" htmlFor="deliverto">
+                    Deliver to
+                </label>
                 <select name="filters-item" id="deliverto">
-                    <option value="iswim@dog.com">james.marshall@gmail.com</option>
+                    <option value="iswim@dog.com">
+                        james.marshall@gmail.com
+                    </option>
                     <option value="ifly@dog.com">ifly@dog.com</option>
                     <option value="isleep@dog.com">isleep@dog.com</option>
                 </select>
             </div>
-            <button className='filter-item-button'>Create an Alert</button>
+            <button className="filter-item-button">Create an Alert</button>
+            <div className="Alerts-Data">
+                <h2 className="Alerts-Data__title">
+                    Alerts Preview ({articleData.length})
+                </h2>
+
+                {articleData.map((data) => {
+                    return <AlertsArticle data={data} />;
+                })}
+            </div>
         </form>
-    )
+    );
 }
 export default FilterBar;
