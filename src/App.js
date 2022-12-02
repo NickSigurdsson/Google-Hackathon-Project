@@ -1,10 +1,14 @@
-import "./App.css";
-import FilterBar from './components/FilterBar/FilterBar';
+import "./App.scss";
+import FilterBar from "./components/FilterBar/FilterBar";
+import Header from "./components/Header/Header";
 
 function App() {
     return (
-        <FilterBar/>
-    )
+        <>
+            <Header />
+            <FilterBar />
+        </>
+    );
 }
 
 export default App;
